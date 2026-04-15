@@ -1,46 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Diri</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <title>CV - Mada Akhmad Zulfi H.</title>
 
+    <style>
+        :root {
+            --blue-main: #2F2FE4;
+            --blue-secondary: #162E93;
+            --blue-dark: #1A1953;
+            --dark: #080616;
+            --white: #ffffff;
+            --light: #f4f6ff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #40e266;
+            /* green tea */
+            margin: 0;
+            color: var(--white);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: var(--white);
+            color: #333;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--blue-dark);
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            color: var(--blue-secondary);
+            margin-top: 25px;
+        }
+
+        hr {
+            border: none;
+            height: 2px;
+            background: #e0e4ff;
+            margin: 8px 0 15px;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 6px 0;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        .btn {
+            margin-top: 10px;
+            padding: 8px 14px;
+            border: none;
+            border-radius: 8px;
+            background: var(--blue-main);
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--blue-secondary);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        /* aksen atas */
+        .container::before {
+            content: "";
+            display: block;
+            height: 6px;
+            width: 100%;
+            background: linear-gradient(90deg, var(--blue-main), var(--blue-secondary));
+            border-radius: 10px 10px 0 0;
+            margin-bottom: 15px;
+        }
+
+        /* hover effect */
+        .container:hover {
+            transform: translateY(-3px);
+            transition: 0.3s;
+        }
+    </style>
+</head>
 
 <body>
 
-    <h1>Daftar Riwayat Hidup</h1>
+    <div class="container">
+        <h1 id="nama">Mada Akhmad Zulfi H.</h1>
+        <p style="text-align:center; color: var(--blue-secondary);">Mahasiswa Informatika</p>
 
-    <h2>Data diri:</h2><hr>
-    <ul>
-        <li>Nama Lengkap: Mada Akhmad Zulfi H.</li>
-        <li>Tempat tanggal lahir: Sidoarjo 30 April 2006</li>
-        <li>Alamat: Sidoarjo, Krian</li>
-        <li>Umur: 19</li>
-        <li>Jenis kelamin: Pria</li>
-    </ul>
+        <h2>Data Diri</h2>
+        <hr>
+        <ul>
+            <li>Tempat tanggal lahir: Sidoarjo, 30 April 2006</li>
+            <li>Alamat: Sidoarjo, Krian</li>
+            <li>Umur: <span id="umur">19</span></li>
+            <li>Jenis kelamin: Pria</li>
+        </ul>
+        <button class="btn" onclick="ubahUmur()">Ubah Umur</button>
 
-    <h2>Data diri:</h2><hr>
-    <p>Saya adalah mahasiswa Institut Teknologi Adhi Tama Surabaya, di prodi teknik Informatika.
-        Kuliah Saya sekarang di semester 4 saya minat di Informatika karena saya ingin jadi programer profesional</p>
+        <h2>Tentang Saya</h2>
+        <hr>
+        <p id="about">Saya adalah mahasiswa Institut Teknologi Adhi Tama Surabaya, prodi Teknik Informatika. Saat ini
+            saya berada di semester 4 dan memiliki minat besar untuk menjadi programmer profesional.</p>
+        <button class="btn" onclick="toggleAbout()">Tampilkan/Sembunyikan</button>
 
-    <h2>Riwayat pendidikan:</h2><hr>
-    <ul>
-        <li>MI Bahrul Ulum Sahlaniyah</li>
-        <li>MTsN 2 Sidoarjo</li>
-        <li>SMK Yapalis Krian</li>
-        <li>Institut Teknologi Adhi Tama</li>
-    </ul>
+        <h2>Riwayat Pendidikan</h2>
+        <hr>
+        <ul>
+            <li>MI Bahrul Ulum Sahlaniyah</li>
+            <li>MTsN 2 Sidoarjo</li>
+            <li>SMK Yapalis Krian</li>
+            <li>Institut Teknologi Adhi Tama Surabaya</li>
+        </ul>
 
-    <h2>Hobi:</h2><hr>
-    <ul>
-        <li>Renang</li>
-        <li>Sepak bola</li>
-        <li>Futsal</li>
-        <li>Mendaki</li>
-    </ul>
+        <h2>Hobi</h2>
+        <hr>
+        <ul id="hobiList">
+            <li>Renang</li>
+            <li>Sepak bola</li>
+            <li>Futsal</li>
+            <li>Mendaki</li>
+        </ul>
+        <button class="btn" onclick="tambahHobi()">Tambah Hobi</button>
+
+        <div class="footer">
+            © 2026 - CV Interaktif
+        </div>
+    </div>
+
+    <script>
+        function toggleAbout() {
+            const about = document.getElementById("about");
+            about.classList.toggle("hidden");
+        }
+
+        function ubahUmur() {
+            const umur = document.getElementById("umur");
+            const input = prompt("Masukkan umur baru:");
+            if (input) {
+                umur.innerText = input;
+                //backgroundFlash("#ffffff", "#40e266", 500);
+            }
+        }
+
+        function tambahHobi() {
+            const list = document.getElementById("hobiList");
+            const hobiBaru = prompt("Masukkan hobi baru:");
+            if (hobiBaru) {
+                const li = document.createElement("li");
+                li.textContent = hobiBaru;
+                list.appendChild(li);
+            }
+        }
+    </script>
 
 </body>
 
